@@ -66,11 +66,8 @@ if st.sidebar.button("Run Prediction"):
             
             # Train Model
 # ---------------------------------------------------------
-            # NEW: Hyperparameter Tuning (The "Math" Fix)
-            # ---------------------------------------------------------
+# ---------------------------------------------------------
             
-            # 1. Define the "Grid" of options to test
-            # We are asking the computer: "Try all these combinations and tell me which wins"
             param_grid = {
                 'max_depth': [3, 5],              # How deep the tree goes (prevents overfitting)
                 'learning_rate': [0.01, 0.05],    # How fast the model learns
@@ -80,7 +77,6 @@ if st.sidebar.button("Run Prediction"):
 
             # 2. Use TimeSeriesSplit
             # CRITICAL FOR FINANCE: Standard Cross-Validation shuffles data. 
-            # We cannot do that (can't use 2024 data to predict 2023). 
             # TimeSeriesSplit ensures we only train on PAST to predict FUTURE.
             tscv = TimeSeriesSplit(n_splits=3)
 
@@ -113,10 +109,6 @@ if st.sidebar.button("Run Prediction"):
             # 6. Predict using the Best Model
             # 6. Predict using the Best Model
             predictions = best_model.predict(X_test)
-            
-            # ---------------------------------------------------------
-            # END OF NEW SECTION
-            # ---------------------------------------------------------
             
             # Show Metrics
             rmse = np.sqrt(mean_squared_error(y_test, predictions))
