@@ -21,5 +21,5 @@ A machine learning pipeline that forecasts stock market volatility using **XGBoo
 ### ⚙️ How to Run Locally
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/Ironyash46/market-volatility-xgboost.git](https://github.com/Ironyash46/market-volatility-predictor.git)
+   git clone (https://github.com/Ironyash46/market-volatility-predictor.git)
    
